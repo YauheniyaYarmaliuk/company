@@ -74,8 +74,7 @@
 				</div>
 					
 				<input type="submit" value="Save" class="btn btn-success btn-sm"/>
-				
-				
+							
 				
 			</form>
 		

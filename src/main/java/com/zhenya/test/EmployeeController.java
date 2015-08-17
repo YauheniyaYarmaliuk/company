@@ -78,11 +78,11 @@ public class EmployeeController {
 		}
 	}
 
-	@RequestMapping(value = "/findOfBirth/{birth}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/findOfBirth/{birt}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public List<Employee> findOfBirth(@PathVariable String birth) {
-		Date dob = getDOB(birth);
-		List<Employee> employees = new EmployeeServiceImpl().findOfBirth(dob);
+	public List<Employee> findOfBirth(@PathVariable String birt) {
+		Date birth = getDOB(birt);
+		List<Employee> employees = new EmployeeServiceImpl().findOfBirth(birth);
 		return employees;
 	}
 
