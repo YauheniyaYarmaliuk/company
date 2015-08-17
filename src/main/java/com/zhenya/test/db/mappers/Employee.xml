@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Employee"> 
+
+    <resultMap id="result" type="Employee">
+        <result property="id" column="id"/>
+        <result property="deptId" column="deptId"/>
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="patronymic" column="patronymic"/>
+        <result property="birth" column="birth"/>
+        <result property="salary" column="salary"/>
+    </resultMap>
+ 
+    <select id="getAll" resultMap="result">
+        SELECT employees.id, employees.deptId, employees.name, employees.surname, employees.patronymic,
+        employees.birth, employees.salary  FROM employees;
+    </select>
+               
+ 	<select id="getById" parameterType="long" resultMap="result">
+ 		SELECT employees.id, employees.deptId, employees.name, employees.surname, employees.patronymic,
+ 		employees.birth, employees.salary  FROM employees
+ 		WHERE id = #{id};
+    </select>
+           
+    <delete id="delete" parameterType="long">
+ 		DELETE FROM employees
+ 		WHERE id = #{id};
+    </delete>
+    
+    <update id="update" parameterType="Employee" >
+      UPDATE EMPLOYEES
+      SET    deptId = #{deptId}, name = #{name}, 
+      		 surname = #{surname}, patronymic = #{patronymic},
+      		 birth = #{birth}, salary = #{salary}
+      WHERE  id = #{id};
+    </update>
+    
+     <insert id="insert" parameterType="Employee">
+      INSERT INTO EMPLOYEES( deptId, name, surname, patronymic, birth, salary)
+      values (#{deptId}, #{name}, #{surname}, #{patronymic}, #{birth}, #{salary})
+     </insert>
+    
+    <select id="findOfBirth" parameterType="java.util.Date" resultMap="result">
+    	SELECT 
+    		employees.name, employees.surname, employees.patronymic,
+     		employees.birth, employees.salary 
+     	FROM 
+     		employees 
+     	WHERE 
+     		birth = #{birth};    
+    </select>
+     
+
+</mapper>

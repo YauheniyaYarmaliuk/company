@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="Department">
+
+    <resultMap id="result" type="Department">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+ 
+    <select id="getAll" resultMap="result">
+        SELECT departments.id, departments.name FROM departments;
+    </select>
+    
+ 	<select id="selectById" parameterType="long" resultMap="result">
+ 		SELECT departments.id, departments.name FROM departments
+ 		WHERE id = #{id};
+    </select>
+    
+    <delete id="delete" parameterType="long">
+ 		DELETE FROM departments
+ 		WHERE id = #{id};
+    </delete>
+    
+    <update id="update" parameterType="Department" >
+      UPDATE DEPARTMENTS
+      SET     name = #{name} 
+      WHERE  id = #{id};
+    </update>
+    
+     <insert id="insert" parameterType="Department"  
+     		 useGeneratedKeys="true" keyProperty="id">
+      INSERT INTO DEPARTMENTS(name)
+      values (#{name})
+     </insert>
+     
+
+</mapper>

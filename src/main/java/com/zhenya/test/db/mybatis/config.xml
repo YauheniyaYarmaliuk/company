@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<configuration>
+    <typeAliases>
+        <typeAlias alias="Department" type="com.zhenya.test.db.entity.Department"/>
+        <typeAlias alias="Employee" type="com.zhenya.test.db.entity.Employee"/> 
+        <typeAlias alias="AVGSalary" type="com.zhenya.test.db.entity.AVGSalary"/>        
+    </typeAliases>
+ 
+    <environments default="development">
+        <environment id="development">
+          <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/company"/>
+                <property name="username" value="root"/>
+                <property name="password" value="952134"/>
+            </dataSource>
+       </environment>
+    </environments>
+    <mappers>
+       <mapper resource="com/zhenya/test/db/mappers/Department.xml"/>
+       <mapper resource="com/zhenya/test/db/mappers/Employee.xml"/>
+       <mapper resource="com/zhenya/test/db/mappers/AVGSalary.xml"/>
+    </mappers>
+</configuration>

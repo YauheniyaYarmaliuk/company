@@ -1,0 +1,38 @@
+/* Main menu */
+
+.main-header .main-menu ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 0;
+	color: #a5a5a5;
+}
+
+.main-header .main-menu ul li {
+	display: inline-block;
+	font-size: 19px;
+	padding: 17px 0px;
+	text-align: center;
+}
+
+.main-header .main-menu ul li a {
+	text-decoration: none;
+	color: #888;
+	font-weight: 300;
+}
+
+
+.main-header .main-menu ul li a:hover {
+	color: #0d365c;
+}
+
+.main-header .main-menu ul li:after {
+	content: "/";
+	margin: 0 13px;
+}
+
+.main-header .main-menu ul li:last-child:after {
+	display: none;
+}
+
