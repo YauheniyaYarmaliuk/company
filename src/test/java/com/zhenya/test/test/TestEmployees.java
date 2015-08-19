@@ -23,19 +23,6 @@ import junit.framework.Assert;
 public class TestEmployees {
 
 	@Test
-	public void testByBirth() {
-		EmployeeService service = new EmployeeServiceImpl();
-
-		
-		Date dob = EmployeeController.getDOB("1991-02-10");
-
-		List<Employee> list = service.findOfBirth(dob);
-		boolean var1 = list.size() > 0;
-
-		Assert.assertEquals(true, var1);
-	}
-/*
-	@Test
 	public void testEmployeeSize() {
 
 		EmployeeService service = new EmployeeServiceImpl();
@@ -114,5 +101,5 @@ public class TestEmployees {
 		Employee employee = service.getById(5);
 		Assert.assertEquals(true, employee == null);
 	}
-*/
+
 }
