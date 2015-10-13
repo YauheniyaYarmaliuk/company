@@ -22,6 +22,9 @@ create table employees (
     foreign key (deptId) references departments(id)
 );
 
+
+CREATE VIEW avgSalary AS SELECT departments.name, AVG(salary) AS salary FROM departments, employees WHERE departments.id = employees.deptId  GROUP BY deptId;
+
 INSERT INTO `departments` (`id`,`name`) VALUES (1,'IT');
 INSERT INTO `departments` (`id`,`name`) VALUES (2,'Engineering');
 INSERT INTO `departments` (`id`,`name`) VALUES (3,'Legal');
